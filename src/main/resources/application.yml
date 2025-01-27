@@ -8,14 +8,12 @@ spring:
   jpa:
     database: MYSQL
     show-sql: false
-    properties:
-      hibernate:
-        session_factory:
-          interceptor: com.hamidou.gestiondestock.interceptor.Interceptor
 
     # Hibernate DDL Auto (create, create-drop, update)
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
       dialect: org.hibernate.dialect.MySQL5Dialect
 
 server:
