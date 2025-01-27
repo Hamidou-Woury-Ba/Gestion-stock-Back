@@ -1,6 +1,7 @@
 package com.hamidou.gestiondestock.dto;
 
-import com.hamidou.gestiondestock.model.Client;
+import com.hamidou.gestiondestock.model.CommandeClient;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,6 +12,8 @@ import java.util.List;
 @Builder
 public class CommandeClientDto {
 
+    private Integer id;
+
     private String code;
 
     private Instant dateCommande;
@@ -18,5 +21,30 @@ public class CommandeClientDto {
     private ClientDto client;
 
     private List<LigneCommandeClientDto> ligneCommandeClient;
+
+    public static CommandeClientDto fromEntity(CommandeClient commandeClient){
+        if(commandeClient == null){
+            return null;
+        }
+
+        return CommandeClientDto.builder()
+                .id(commandeClient.getId())
+                .code(commandeClient.getCode())
+                .dateCommande(commandeClient.getDateCommande())
+                .build();
+    }
+
+    public static CommandeClient toEntity(CommandeClientDto commandeClientDto){
+        if(commandeClientDto == null){
+            return null;
+        }
+
+        CommandeClient commandeClient = new CommandeClient();
+        commandeClient.setId(commandeClientDto.getId());
+        commandeClient.setCode(commandeClientDto.getCode());
+        commandeClient.setDateCommande(commandeClientDto.getDateCommande());
+
+        return commandeClient;
+    }
 
 }

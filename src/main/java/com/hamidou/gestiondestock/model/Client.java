@@ -3,11 +3,9 @@ package com.hamidou.gestiondestock.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -34,6 +32,6 @@ public class Client extends AbstractEntity{
     private String numTel;
 
     @OneToMany(mappedBy = "client")
-    private List<CommandeCLient> commandeClients;
+    private List<CommandeClient> commandeClients;
 
 }

@@ -7,13 +7,12 @@ import java.time.Instant;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
 @Table(name = "commandeclient")
-public class CommandeCLient extends AbstractEntity{
+public class CommandeClient extends AbstractEntity{
 
     @Column(name = "code")
     private String code;

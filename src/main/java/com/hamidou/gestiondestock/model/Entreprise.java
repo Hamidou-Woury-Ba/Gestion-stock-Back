@@ -1,13 +1,11 @@
 package com.hamidou.gestiondestock.model;
 
-import com.hamidou.gestiondestock.dto.UtilisateurDto;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode

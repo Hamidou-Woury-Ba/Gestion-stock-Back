@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -27,5 +26,8 @@ public class MouvementStock extends AbstractEntity{
 
     @Column(name = "typemouvementstock")
     private  TypeMouvementStock typeMouvementStock;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
 }
