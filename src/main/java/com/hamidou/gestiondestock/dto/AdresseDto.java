@@ -3,7 +3,6 @@ package com.hamidou.gestiondestock.dto;
 import com.hamidou.gestiondestock.model.Adresse;
 import lombok.Builder;
 import lombok.Data;
-
 @Data
 @Builder
 public class AdresseDto {

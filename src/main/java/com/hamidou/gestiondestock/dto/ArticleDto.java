@@ -1,14 +1,13 @@
 package com.hamidou.gestiondestock.dto;
 
+import com.hamidou.gestiondestock.model.Article;
 import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
 
-import com.hamidou.gestiondestock.model.Article;
-
-@Builder
 @Data
+@Builder
 public class ArticleDto {
 
     private Integer id;
@@ -19,7 +18,7 @@ public class ArticleDto {
 
     private BigDecimal prixUnitaireHT;
 
-    private  BigDecimal tauxTva;
+    private BigDecimal tauxTva;
 
     private BigDecimal prixUnitaireTtc;
 
@@ -27,9 +26,9 @@ public class ArticleDto {
 
     private CategoryDto category;
 
-    public static ArticleDto fromEntity(Article article){
+    public static ArticleDto fromEntity(Article article) {
 
-        if(article == null){
+        if (article == null) {
             return null;
         }
 
@@ -44,9 +43,9 @@ public class ArticleDto {
                 .build();
     }
 
-    public static Article toEntity(ArticleDto articleDto){
+    public static Article toEntity(ArticleDto articleDto) {
 
-        if(articleDto == null){
+        if (articleDto == null) {
             return null;
         }
 
@@ -60,5 +59,4 @@ public class ArticleDto {
         article.setPhoto(articleDto.getPhoto());
         return article;
     }
-
 }

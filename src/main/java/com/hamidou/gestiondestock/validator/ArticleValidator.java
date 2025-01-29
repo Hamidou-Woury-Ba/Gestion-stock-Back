@@ -1,7 +1,7 @@
 package com.hamidou.gestiondestock.validator;
 
-import com.hamidou.gestiondestock.dto.ArticleDto;
 import org.springframework.util.StringUtils;
+import com.hamidou.gestiondestock.dto.ArticleDto;
 
 import java.util.ArrayList;
 import java.util.List;

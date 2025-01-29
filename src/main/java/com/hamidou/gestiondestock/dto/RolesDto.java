@@ -14,8 +14,8 @@ public class RolesDto {
 
     private String roleName;
 
-    @JsonIgnore
-    private UtilisateurDto utilisateur;
+   @JsonIgnore
+   private UtilisateurDto utilisateur;
 
     public static RolesDto fromEntity(Roles roles){
         if(roles == null){
