@@ -22,7 +22,7 @@ public class AdresseDto {
             return null;
         }
 
-        return AdresseDto.builder()
+        return AdresseDto  .builder()
                 .adresse1(adresse.getAdresse1())
                 .adresse2(adresse.getAdresse2())
                 .codePostal(adresse.getCodePostal())
