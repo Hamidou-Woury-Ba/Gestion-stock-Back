@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @Table(name = "lignevente")
 public class LigneVente extends AbstractEntity{
 
+    @Column(name = "quantite")
     private BigDecimal quantite;
 
     @ManyToOne

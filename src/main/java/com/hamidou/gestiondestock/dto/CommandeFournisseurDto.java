@@ -17,6 +17,8 @@ public class CommandeFournisseurDto {
 
     private Instant dateCommande;
 
+    private Integer idEntreprise;
+
     private FournisseurDto fournisseur;
 
     private List<LigneCommandeFournisseurDto> ligneCommandeFournisseur;
@@ -30,6 +32,7 @@ public class CommandeFournisseurDto {
                 .id(commandeFournisseur.getId())
                 .Code(commandeFournisseur.getCode())
                 .dateCommande(commandeFournisseur.getDateCommande())
+                .idEntreprise(commandeFournisseur.getIdEntreprise())
                 .build();
     }
 
@@ -42,6 +45,7 @@ public class CommandeFournisseurDto {
         commandeFournisseur.setId(commandeFournisseurDto.getId());
         commandeFournisseur.setCode(commandeFournisseurDto.getCode());
         commandeFournisseur.setDateCommande(commandeFournisseurDto.getDateCommande());
+        commandeFournisseur.setIdEntreprise(commandeFournisseurDto.getIdEntreprise());
 
         return commandeFournisseur;
     }   

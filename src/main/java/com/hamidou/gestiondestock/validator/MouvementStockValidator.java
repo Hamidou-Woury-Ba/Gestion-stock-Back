@@ -15,11 +15,14 @@ public class MouvementStockValidator {
             return errors;
         }
 
+        if (mouvementStock.getDateMouvementStock() == null) {
+            errors.add("Veuillez renseigner la date du mouvenent");
+        }
+
         if (mouvementStock.getQuantite() == null || mouvementStock.getQuantite().compareTo(BigDecimal.ZERO) == 0) {
-            errors.add("Veuillez renseigner la quantite du mouvenent");
+            errors.add("Veuillez renseigner la quantité du mouvenent");
         }
         
-
         return errors;
     }
 }

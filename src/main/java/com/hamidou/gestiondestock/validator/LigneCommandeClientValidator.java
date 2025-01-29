@@ -12,7 +12,6 @@ public class LigneCommandeClientValidator {
     if (ligneCommandeClientDto == null) {
       errors.add("Veuillez renseigner le quantite de la ligne de commande");
       errors.add("Veuillez renseigner le prix unitaire de la ligne de commande");
-      errors.add("Veuillez renseigner l'identreprise de la ligne de commande");
       
       return errors;
     }
@@ -23,10 +22,6 @@ public class LigneCommandeClientValidator {
 
     if (ligneCommandeClientDto.getPrixUnitaire() == null) {
       errors.add("Veuillez renseigner le prix unitaire de la ligne de commande");
-    }
-
-    if (ligneCommandeClientDto.getIdEntreprise() == null) {
-      errors.add("Veuillez renseigner l'identreprise de la ligne de commande");
     }
 
     return errors;

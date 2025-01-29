@@ -24,6 +24,8 @@ public class ArticleDto {
 
     private String photo;
 
+    private Integer idEntreprise;
+
     private CategoryDto category;
 
     public static ArticleDto fromEntity(Article article) {
@@ -34,12 +36,13 @@ public class ArticleDto {
 
         return ArticleDto.builder()
                 .id(article.getId())
-                .codearticle(article.getCodearticle())
+                .codearticle(article.getCodeArticle())
                 .designation(article.getDesignation())
-                .prixUnitaireHT(article.getPrixUnitaireHT())
+                .prixUnitaireHT(article.getPrixUnitaireHt())
                 .tauxTva(article.getTauxTva())
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
                 .photo(article.getPhoto())
+                .idEntreprise(article.getIdEntreprise())
                 .build();
     }
 
@@ -51,12 +54,13 @@ public class ArticleDto {
 
         Article article = new Article();
         article.setId(articleDto.getId());
-        article.setCodearticle(articleDto.getCodearticle());
+        article.setCodeArticle(articleDto.getCodearticle());
         article.setDesignation(articleDto.getDesignation());
-        article.setPrixUnitaireHT(articleDto.getPrixUnitaireHT());
+        article.setPrixUnitaireHt(articleDto.getPrixUnitaireHT());
         article.setTauxTva(articleDto.getTauxTva());
         article.setPrixUnitaireTtc(articleDto.getPrixUnitaireTtc());
         article.setPhoto(articleDto.getPhoto());
+        article.setIdEntreprise(articleDto.getIdEntreprise());
         return article;
     }
 }
