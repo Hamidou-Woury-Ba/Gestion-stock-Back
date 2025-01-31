@@ -10,9 +10,20 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.hamidou.gestiondestock.exception.EntityNotFoundException;
 import com.hamidou.gestiondestock.exception.InvalidEntityException;
 
+/**
+ * Cette classe permet de gérer les exceptions de type EntityNotFoundException et InvalidEntityException
+ * Elle hérite de ResponseEntityExceptionHandler
+ */
+
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler{
     
+    /**
+     * Cette méthode permet de gérer les exceptions de type EntityNotFoundException 
+     * @param exception : l'exception à gérer 
+     * @param webRequest : la requête web
+     * @return
+     */
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ErrorDto> handleException(EntityNotFoundException exception, WebRequest webRequest){
 
@@ -28,7 +39,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler{
 
     }
 
+    /**
+     * Cette méthode permet de gérer les exceptions de type InvalidEntityException 
+     * @param exception : l'exception à gérer 
+     * @param webRequest : la requête web
+     * @return
+     */
 
+    @ExceptionHandler(InvalidEntityException.class)
     public ResponseEntity<ErrorDto> handleException(InvalidEntityException exception, WebRequest webRequest){
 
         final HttpStatus badRequest = HttpStatus.BAD_REQUEST;
