@@ -64,7 +64,7 @@ public class CategoryServiceImpl implements CategoryService {
             return null;
         }
 
-        Optional<Category> category = categoryRepository.findCategoryByCodeCategory(codeCategory);
+        Optional<Category> category = categoryRepository.findCategoryByCode(codeCategory);
 
         CategoryDto categoryDto = CategoryDto.fromEntity(category.get());
 
