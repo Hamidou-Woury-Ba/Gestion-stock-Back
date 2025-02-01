@@ -6,7 +6,9 @@ import java.util.List;
 import com.hamidou.gestiondestock.dto.LigneCommandeClientDto;
 
 public class LigneCommandeClientValidator {
-     public static List<String> validate(LigneCommandeClientDto ligneCommandeClientDto) {
+
+    public static List<String> validate(LigneCommandeClientDto ligneCommandeClientDto) {
+      
     List<String> errors = new ArrayList<>();
 
     if (ligneCommandeClientDto == null) {
