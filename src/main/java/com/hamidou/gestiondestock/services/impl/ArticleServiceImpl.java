@@ -1,9 +1,9 @@
 package com.hamidou.gestiondestock.services.impl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.hamidou.gestiondestock.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -50,12 +50,9 @@ public class ArticleServiceImpl implements ArticleService {
             return null;
         }
 
-        Optional<Article> article = articleRepository.findById(id);
-
-        ArticleDto articleDto = ArticleDto.fromEntity(article.get());
-
-        return Optional.of(articleDto)
-                .orElseThrow(() -> new InvalidEntityException(
+        return articleRepository.findById(id)
+                .map(ArticleDto::fromEntity)
+                .orElseThrow(() -> new EntityNotFoundException(
                         "Aucun article avec l'ID = " + id + " n'a été trouvé dans la BDD",
                         ErrorCodes.ARTICLE_NOT_FOUND));
     }
@@ -68,12 +65,9 @@ public class ArticleServiceImpl implements ArticleService {
             return null;
         }
 
-        Optional<Article> article = articleRepository.findArticleByCodeArticle(codeArticle);
-
-        ArticleDto articleDto = ArticleDto.fromEntity(article.get());
-
-        return Optional.of(articleDto)
-                .orElseThrow(() -> new InvalidEntityException(
+        return articleRepository.findArticleByCodeArticle(codeArticle)
+                .map(ArticleDto::fromEntity)
+                .orElseThrow(() -> new EntityNotFoundException(
                         "Aucun article avec le CODE = " + codeArticle + " n'a été trouvé dans la BDD",
                         ErrorCodes.ARTICLE_NOT_FOUND));
     }

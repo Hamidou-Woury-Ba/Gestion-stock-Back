@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,13 +44,10 @@ public class CategoryServiceImpl implements CategoryService {
           log.error("Category ID is null");
         }
 
-        Optional<Category> category = categoryRepository.findById(id);
-
-        CategoryDto categoryDto = CategoryDto.fromEntity(category.get());
-
-        return Optional.of(categoryDto)
-                .orElseThrow(() -> new InvalidEntityException(
-                        "Aucune catégory avec l'ID = " + id + " n'a été trouvé dans la BDD",
+        return categoryRepository.findById(id)
+                .map(CategoryDto::fromEntity)
+                .orElseThrow(() -> new EntityNotFoundException(
+                        "Aucun article avec l'ID = " + id + " n'a été trouvé dans la BDD",
                         ErrorCodes.CATEGORY_NOT_FOUND
                 ));
     }
@@ -64,13 +60,10 @@ public class CategoryServiceImpl implements CategoryService {
             return null;
         }
 
-        Optional<Category> category = categoryRepository.findCategoryByCode(codeCategory);
-
-        CategoryDto categoryDto = CategoryDto.fromEntity(category.get());
-
-        return Optional.of(categoryDto)
+        return categoryRepository.findCategoryByCode(codeCategory)
+                .map(CategoryDto::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException(
-                        "Aucun article avec le CODE = " + codeCategory + " n'a été trouvé dans la BDD",
+                        "Aucun article avec le code = " + codeCategory + " n'a été trouvé dans la BDD",
                         ErrorCodes.CATEGORY_NOT_FOUND
                 ));
     }

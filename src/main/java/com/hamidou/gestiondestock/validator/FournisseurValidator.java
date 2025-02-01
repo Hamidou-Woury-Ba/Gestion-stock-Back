@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 import com.hamidou.gestiondestock.dto.FournisseurDto;
 
 public class FournisseurValidator {
-    public static void validate(FournisseurDto fournisseurDto){
+    public static List<String> validate(FournisseurDto fournisseurDto){
         List<String> errors = new ArrayList<>();
 
         if(fournisseurDto == null){
@@ -16,6 +16,8 @@ public class FournisseurValidator {
             errors.add("Veuillez renseigner le prenom du fournisseur");
             errors.add("Veuillez renseigner l'email du fournisseur");
             errors.add("Veuillez renseigner le numéro de téléphone du fournisseur");
+            
+            return errors;
         }
 
         if (!StringUtils.hasLength(fournisseurDto.getNom())){
@@ -33,5 +35,7 @@ public class FournisseurValidator {
         if (!StringUtils.hasLength(fournisseurDto.getNumTel())){
             errors.add("Veuillez renseigner le numéro de téléphone du fournisseur");
         }
+
+        return errors;
     }
 }
