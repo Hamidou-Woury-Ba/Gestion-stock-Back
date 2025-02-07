@@ -25,7 +25,12 @@ public class MouvementStock extends AbstractEntity{
     private Article article;
 
     @Column(name = "typemouvementstock")
-    private  TypeMouvementStock typeMouvementStock;
+    @Enumerated(EnumType.STRING)
+    private TypeMouvementStock typeMouvementStock;
+  
+    @Column(name = "sourcemouvementstock")
+    @Enumerated(EnumType.STRING)
+    private SourceMouvementStock sourceMouvementStock;
 
     @Column(name = "identreprise")
     private Integer idEntreprise;

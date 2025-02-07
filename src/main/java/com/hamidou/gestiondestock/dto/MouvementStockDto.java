@@ -2,6 +2,7 @@ package com.hamidou.gestiondestock.dto;
 
 import com.hamidou.gestiondestock.model.Article;
 import com.hamidou.gestiondestock.model.MouvementStock;
+import com.hamidou.gestiondestock.model.SourceMouvementStock;
 import com.hamidou.gestiondestock.model.TypeMouvementStock;
 import lombok.Builder;
 import lombok.Data;
@@ -22,11 +23,13 @@ public class MouvementStockDto {
     private Article article;
 
     private TypeMouvementStock typeMouvementStock;
-    
+
+    private SourceMouvementStock sourceMouvementStock;
+
     private Integer idEntreprise;
 
-    public static MouvementStockDto fromEntity(MouvementStock mouvementStock){
-        if(mouvementStock == null){
+    public static MouvementStockDto fromEntity(MouvementStock mouvementStock) {
+        if (mouvementStock == null) {
             return null;
         }
 
@@ -34,12 +37,14 @@ public class MouvementStockDto {
                 .id(mouvementStock.getId())
                 .dateMouvementStock(mouvementStock.getDateMouvementStock())
                 .quantite(mouvementStock.getQuantite())
+                .typeMouvementStock(mouvementStock.getTypeMouvementStock())
+                .sourceMouvementStock(mouvementStock.getSourceMouvementStock())
                 .idEntreprise(mouvementStock.getIdEntreprise())
                 .build();
     }
 
-    public static MouvementStock toEntity(MouvementStockDto mouvementStockDto){
-        if(mouvementStockDto == null){
+    public static MouvementStock toEntity(MouvementStockDto mouvementStockDto) {
+        if (mouvementStockDto == null) {
             return null;
         }
 
@@ -47,6 +52,8 @@ public class MouvementStockDto {
         mouvementStock.setId(mouvementStockDto.getId());
         mouvementStock.setDateMouvementStock(mouvementStockDto.getDateMouvementStock());
         mouvementStock.setQuantite(mouvementStockDto.getQuantite());
+        mouvementStock.setTypeMouvementStock(mouvementStockDto.getTypeMouvementStock());
+        mouvementStock.setSourceMouvementStock(mouvementStockDto.getSourceMouvementStock());
         mouvementStock.setIdEntreprise(mouvementStockDto.getIdEntreprise());
 
         return mouvementStock;

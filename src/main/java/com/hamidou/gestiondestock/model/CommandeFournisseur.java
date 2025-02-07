@@ -15,7 +15,7 @@ import java.util.List;
 public class CommandeFournisseur extends AbstractEntity{
 
     @Column(name = "code")
-    private String Code;
+    private String code;
 
     @Column(name = "datecommande")
     private Instant dateCommande;
