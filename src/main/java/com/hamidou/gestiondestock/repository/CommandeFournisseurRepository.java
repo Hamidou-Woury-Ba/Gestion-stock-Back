@@ -1,6 +1,5 @@
 package com.hamidou.gestiondestock.repository;
 
-import com.hamidou.gestiondestock.dto.CommandeFournisseurDto;
 import com.hamidou.gestiondestock.model.CommandeFournisseur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
