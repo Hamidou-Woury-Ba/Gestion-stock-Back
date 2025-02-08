@@ -11,8 +11,8 @@ import com.hamidou.gestiondestock.exception.EntityNotFoundException;
 import com.hamidou.gestiondestock.exception.InvalidEntityException;
 
 /**
- * Cette classe permet de gérer les exceptions de type EntityNotFoundException et InvalidEntityException
- * Elle hérite de ResponseEntityExceptionHandler
+ * Cette classe permet de gérer les exceptions de type EntityNotFoundException et InvalidEntityException,
+ * elle hérite de ResponseEntityExceptionHandler
  */
 
 @RestControllerAdvice
