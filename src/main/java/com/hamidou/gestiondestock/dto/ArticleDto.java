@@ -43,6 +43,7 @@ public class ArticleDto {
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
                 .photo(article.getPhoto())
                 .idEntreprise(article.getIdEntreprise())
+                .category(CategoryDto.fromEntity(article.getCategory()))
                 .build();
     }
 
@@ -61,6 +62,7 @@ public class ArticleDto {
         article.setPrixUnitaireTtc(articleDto.getPrixUnitaireTtc());
         article.setPhoto(articleDto.getPhoto());
         article.setIdEntreprise(articleDto.getIdEntreprise());
+        article.setCategory(CategoryDto.toEntity(articleDto.getCategory()));
         return article;
     }
 }
