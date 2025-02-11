@@ -1,5 +1,6 @@
 package com.hamidou.gestiondestock.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
@@ -26,6 +27,7 @@ public class ClientDto {
 
     private Integer idEntreprise;
 
+    @JsonIgnore
     private List<CommandeClientDto> commandeClients;
 
     public static ClientDto fromEntity(Client client){

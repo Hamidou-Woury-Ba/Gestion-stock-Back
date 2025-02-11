@@ -18,7 +18,9 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class CategoryServiceImpl implements CategoryService {
+
     private CategoryRepository categoryRepository;
+
     private CategoryServiceImpl(CategoryRepository categoryRepository){
         this.categoryRepository = categoryRepository;
     }
@@ -28,7 +30,7 @@ public class CategoryServiceImpl implements CategoryService {
         List<String> errors = CategoryValidator.validate(categoryDto);
 
         if(!errors.isEmpty()){
-          log.error("Article n'est pas valide {}", categoryDto);
+          log.error("Catégorie n'est pas valide {}", categoryDto);
           throw(new InvalidEntityException("Cette catégorie n'est pas valide", ErrorCodes.CATEGORY_NOT_FOUND, errors));
         }
 
@@ -47,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findById(id)
                 .map(CategoryDto::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException(
-                        "Aucun article avec l'ID = " + id + " n'a été trouvé dans la BDD",
+                        "Aucune catégorie avec l'ID = " + id + " n'a été trouvée dans la BDD",
                         ErrorCodes.CATEGORY_NOT_FOUND
                 ));
     }
@@ -63,7 +65,7 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findCategoryByCode(codeCategory)
                 .map(CategoryDto::fromEntity)
                 .orElseThrow(() -> new EntityNotFoundException(
-                        "Aucun article avec le code = " + codeCategory + " n'a été trouvé dans la BDD",
+                        "Aucune catégorie avec le code = " + codeCategory + " n'a été trouvée dans la BDD",
                         ErrorCodes.CATEGORY_NOT_FOUND
                 ));
     }

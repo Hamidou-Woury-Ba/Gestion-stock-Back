@@ -25,7 +25,7 @@ public interface CategoryApi {
     )
     public CategoryDto save(@RequestBody CategoryDto categoryDto);
 
-    @GetMapping(value = APP_ROOT + "/categorie/{idCategorie}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = APP_ROOT + "/categorie/{idCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
             summary = "Rechercher une categorie par ID",
             description = "Cette méthode permet de chercher une categorie par son ID",
@@ -34,9 +34,9 @@ public interface CategoryApi {
                     @ApiResponse(responseCode = "404", description = "Aucune categorie n'existe dans la BD avec l'ID fourni")
             }
     )
-    public CategoryDto findById(@PathVariable(value = "idCategory") Integer id);
+    public CategoryDto findById(@PathVariable("idCategory") Integer id);
 
-    @GetMapping(value = APP_ROOT + "/categorie/code/{codeCategorie}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = APP_ROOT + "/categorie/code/{codeCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
             summary = "Rechercher une categorie par code",
             description = "Cette méthode permet de chercher une categorie par son code",
@@ -45,7 +45,7 @@ public interface CategoryApi {
                     @ApiResponse(responseCode = "404", description = "Aucune categorie n'existe dans la BD avec le code fourni")
             }
     )
-    public CategoryDto findByCodeCategory(@PathVariable(value = "codeCategory") String code);
+    public CategoryDto findByCodeCategory(@PathVariable("codeCategory") String code);
 
     @GetMapping(value = APP_ROOT + "/categorie/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
@@ -65,6 +65,6 @@ public interface CategoryApi {
                     @ApiResponse(responseCode = "200", description = "La categorie a été supprimé")
             }
     )
-    void deleteById(@PathVariable(value = "idCategory") Integer id);
+    void deleteById(@PathVariable("idCategory") Integer id);
 
 }

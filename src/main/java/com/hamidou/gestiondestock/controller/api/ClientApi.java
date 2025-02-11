@@ -34,7 +34,7 @@ public interface ClientApi {
                     @ApiResponse(responseCode = "404", description = "Aucun client n'existe dans la BD avec l'ID fourni")
             }
     )
-    ClientDto findById(@PathVariable(value = "idClient") Integer id);
+    ClientDto findById(@PathVariable("idClient") Integer id);
 
     @GetMapping(value = APP_ROOT + "/client/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
@@ -54,6 +54,6 @@ public interface ClientApi {
                     @ApiResponse(responseCode = "200", description = "Le client a été supprimé")
             }
     )
-    void delete(@PathVariable(value = "idClient") Integer id);
+    void delete(@PathVariable("idClient") Integer id);
 
 }

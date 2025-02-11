@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class ClientServiceApi implements ClientService {
+public class ClientServiceImpl implements ClientService {
 
     private ClientRepository clientRepository;
 
-    public ClientServiceApi(ClientRepository clientRepository){
+    public ClientServiceImpl(ClientRepository clientRepository){
         this.clientRepository = clientRepository;
     }
 

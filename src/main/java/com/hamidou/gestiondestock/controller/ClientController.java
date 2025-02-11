@@ -11,7 +11,11 @@ import java.util.List;
 public class ClientController implements ClientApi {
 
     private ClientService clientService;
-    
+
+    public ClientController(ClientService clientService) {
+        this.clientService = clientService;
+    }
+
     @Override
     public ClientDto save(ClientDto clientDto) {
         return clientService.save(clientDto);
