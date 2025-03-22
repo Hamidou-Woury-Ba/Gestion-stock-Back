@@ -14,9 +14,11 @@ import java.io.InputStream;
 public class FlickrServiceImpl implements FlickrService {
 
     private Flickr flickr;
+
     public FlickrServiceImpl(Flickr flickr){
         this.flickr = flickr;
     }
+    
     @Override
     public String savePhoto(InputStream photo, String title) throws FlickrException {
 

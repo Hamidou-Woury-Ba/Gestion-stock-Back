@@ -46,6 +46,7 @@ public class FlickrConfiguration {
     @Value("${flickr.appSecret}")
     private String appSecret;
 
+    //On ajoute l'annotation Bean pour qu'au démarage de l'application, on puisse récupérer l'objet Flickr c'est à dire exécuter la méthode
     //@Bean
     /*
     public Flickr getFlickr() throws IOException, ExecutionException, InterruptedException, FlickrException {
